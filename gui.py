@@ -1118,7 +1118,10 @@ class RootWindow(tk.Tk):
         fnku_newest=max(fnku_all)
         
         for i in gui_data_set:
-            ver=LooseVersion(i.split('/')[4][1:-4])
+            if(i.split('/')[4] == 'download'):
+                ver=LooseVersion(i.split('/')[5][1:-4])
+            else:
+                ver=LooseVersion(i.split('/')[4][1:-4])  #archived url
             if ver > LooseVersion('2.0.5'):
                 gui_all.append(ver)
                 
